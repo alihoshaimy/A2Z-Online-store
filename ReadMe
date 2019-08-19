@@ -1,0 +1,15 @@
+A simple project allowing a company to have its products shows online with the ability to purchase.
+
+The projects has some dummy data in it which can be inserted to the database. Please follow the below steps to have the project running:
+
+1- Clone the project and open it using Visual Studio 
+
+2- Open appsettings.json and check if the connection string has to be changed 
+
+3- Open Packet Manager, and run the command: "update-database" 
+
+4- Run the project, if an eror appears, navigate to "api/DataSeed/SeedData" page to feed the database with some dummy data 
+
+5- An Administrator user will be created who has teh ability to add more brands, categories and products 
+	Username: Adminitrator 
+	Password: P@ssw0rd
