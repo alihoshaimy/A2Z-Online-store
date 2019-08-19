@@ -1,0 +1,88 @@
+﻿@model A2ZOnlineStore.Data.Models.Product
+
+@{
+    ViewData["Title"] = "AddProduct";
+}
+
+<h2>AddProduct</h2>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddProduct">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(m => Model.ProductId)
+            @*<div class="form-group">
+            <label asp-for="ProductId" class="control-label"></label>
+            <input asp-for="ProductId" class="form-control" />
+            <span asp-validation-for="ProductId" class="text-danger"></span>
+        </div>*@
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortDescription" class="control-label"></label>
+                <input asp-for="ShortDescription" class="form-control" />
+                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LongDescription" class="control-label"></label>
+                <textarea asp-for="LongDescription" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="LongDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageThumbnailUrl" class="control-label"></label>
+                <input asp-for="ImageThumbnailUrl" class="form-control" />
+                <span asp-validation-for="ImageThumbnailUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsPreferredProduct" /> @Html.DisplayNameFor(model => model.IsPreferredProduct)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="InStock" /> @Html.DisplayNameFor(model => model.InStock)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Category</label>
+                @*<input asp-for="CategoryId" class="form-control" />*@
+                @Html.DropDownList("CategoryId", new SelectList(ViewBag.Categories, "CategoryId", "CategoryName", Model.CategoryId), new { @class = "form-control" })
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Brand</label>
+                @*<input asp-for="BrandId" class="form-control" />*@
+                @Html.DropDownList("BrandId", new SelectList(ViewBag.Brand, "BrandId", "Name", Model.BrandId), new { @class = "form-control" })
+                <span asp-validation-for="BrandId" class="text-danger"></span>
+            </div>
+            <div class="form-group pull-right">
+                <input type="reset" value="Reset" class="btn btn-danger" />
+                <input type="submit" value="Add Product" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
